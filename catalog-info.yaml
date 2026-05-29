@@ -7,6 +7,7 @@ metadata:
   annotations:
     backstage.io/kubernetes-id: sify-portal
     backstage.io/kubernetes-namespace: default
+    backstage.io/kubernetes-label-selector: 'app=sify-portal'
     backstage.io/techdocs-ref: dir:.
   tags:
     - frontend
