@@ -1,0 +1,10 @@
+site_name: Sify Developer Portal
+site_description: Internal developer portal documentation
+docs_dir: docs
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - Deployment: deployment.md
+  - Kubernetes: kubernetes.md
+plugins:
+  - techdocs-core
