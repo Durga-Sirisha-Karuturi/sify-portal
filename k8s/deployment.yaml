@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sify-portal
+  namespace: default
+  labels:
+    app: sify-portal
+    backstage.io/kubernetes-id: sify-portal
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sify-portal
+  template:
+    metadata:
+      labels:
+        app: sify-portal
+        backstage.io/kubernetes-id: sify-portal
+    spec:
+      containers:
+        - name: sify-portal
+          image: sirishakaruturi/sify-portal
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sify-portal
+  namespace: default
+  labels:
+    app: sify-portal
+spec:
+  type: NodePort
+  selector:
+    app: sify-portal
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30080

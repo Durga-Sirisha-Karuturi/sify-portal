@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sify-portal
+  title: Sify Developer Portal
+  description: Internal developer portal for Sify — shows services, Kubernetes status, APIs and metrics.
+  annotations:
+    backstage.io/kubernetes-id: sify-portal
+    backstage.io/kubernetes-namespace: default
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - frontend
+    - portal
+    - kubernetes
+    - internal
+  links:
+    - url: http://10.0.1.20:30080
+      title: Live App
+      icon: web
+spec:
+  type: website
+  lifecycle: production
+  owner: platform-team
+  system: sify-platform
